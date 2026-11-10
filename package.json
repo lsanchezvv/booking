@@ -1,0 +1,27 @@
+{
+  "name": "booking",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter @nordo/booking-api dev",
+    "build": "pnpm --filter @nordo/booking-api build",
+    "test": "pnpm --filter @nordo/booking test",
+    "typecheck": "pnpm -r typecheck",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,md}\" --cache",
+    "format:write": "prettier --write \"**/*.{ts,tsx,js,md}\" --cache",
+    "supabase:start": "supabase start",
+    "supabase:stop": "supabase stop",
+    "db:reset": "supabase db reset",
+    "db:types": "supabase gen types typescript --schema booking > packages/booking/src/database.types.ts && prettier --write packages/booking/src/database.types.ts",
+    "db:migrate:remote": "tsx scripts/migrate-remote.ts"
+  },
+  "devDependencies": {
+    "postgres": "^3.4.4",
+    "prettier": "^3.5.3",
+    "supabase": "^3.1.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  },
+  "packageManager": "pnpm@10.10.0"
+}
